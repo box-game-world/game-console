@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a href="http://localhost:7000">Login</a>
+    <a href="http://localhost:7000/login">Login</a>
     
   </div>
 </template>
