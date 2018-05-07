@@ -11,6 +11,10 @@ import Component from 'vue-class-component'
 @Component
 export default class App extends Vue{
 
+
+  public mounted():void{
+    ( this as any ).$store.commit( 'auth/UPDATE_ACCESS_TOKEN')
+  }
 }
 </script>
 
