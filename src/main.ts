@@ -5,8 +5,12 @@ import Vuex from 'vuex';
 import App from './app.vue'
 import router from './router'
 import store from './store/'
+import VueMaterial from 'vue-material'
+
 
 Vue.config.productionTip = false;
+
+Vue.use(VueMaterial);
 
 /* eslint-disable no-new */
 new Vue({

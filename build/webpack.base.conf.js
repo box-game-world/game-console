@@ -8,8 +8,6 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-
-
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
@@ -39,6 +37,7 @@ module.exports = {
       {
         test: /\.ts$/,
         loader: 'ts-loader',
+        exclude: [/node_modules/, './server'],
         options: {
           appendTsSuffixTo: [/\.vue$/]
         },
@@ -47,6 +46,16 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+      },
+      {
+        test: /\.scss$/, 
+        use: [{
+            loader: "style-loader" // creates style nodes from JS strings
+        }, {
+            loader: "css-loader" // translates CSS into CommonJS
+        }, {
+            loader: "sass-loader" // compiles Sass to CSS
+        }]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

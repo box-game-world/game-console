@@ -7,24 +7,27 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import { mapMutations } from 'vuex'
+import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/theme/default.css'
 
-@Component
+@Component({
+
+  methods:{
+    ...mapMutations({
+      updateAccessToken:'auth/UPDATE_ACCESS_TOKEN'
+    })
+  }
+})
 export default class App extends Vue{
-
-
-  public mounted():void{
-    ( this as any ).$store.commit( 'auth/UPDATE_ACCESS_TOKEN')
+  public created():void{
+    ( this as any ).updateAccessToken(); 
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app{
+    padding: 1em;
+  }
 </style>
