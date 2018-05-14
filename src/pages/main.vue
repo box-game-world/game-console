@@ -4,7 +4,7 @@
     <a v-if="accessToken" href="" @click.prevent="signOut">Sign out</a>
     <span v-if="userInfo">Hello {{ userInfo.nickname }}</span>
     <sign-up-form v-if="!accessToken"></sign-up-form>
-    
+    <game-card-list></game-card-list>
   </div>
 </template>
 
@@ -14,6 +14,7 @@ import Component from 'vue-class-component'
 import { mapGetters, mapActions } from 'vuex';
 
 import SignUpForm from '../components/sign-up-form/index.vue'
+import GameCardList from '../components/game-card-list/index.vue'
 
 @Component({
   computed: {
@@ -31,7 +32,8 @@ import SignUpForm from '../components/sign-up-form/index.vue'
   },
 
   components:{
-    SignUpForm
+    SignUpForm,
+    GameCardList
   }
   
 })
